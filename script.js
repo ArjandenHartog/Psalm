@@ -36,3 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showRandomVerse(verses); // Direct een vers tonen
     setInterval(() => showRandomVerse(verses), 100000);
 });
+
+function toggleDarkMode() {
+    document.body.classList.toggle('dark-mode');
+  }
