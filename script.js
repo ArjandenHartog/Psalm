@@ -27,7 +27,7 @@ function showRandomVerse(verses) {
     
     // Zoek het juiste mp3-bestand op basis van het psalmnummer
     const audioPlayer = document.getElementById('audio-player');
-    audioPlayer.src = `${psalmNumber}-iso.mp3`; // Stel de bron in van het mp3-bestand
+    audioPlayer.src = `audio/${psalmNumber}-iso.mp3`; // Stel de bron in van het mp3-bestand
     audioPlayer.play(); // Speel het mp3-bestand af
 }
 
