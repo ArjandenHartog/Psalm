@@ -1,9 +1,15 @@
 /* Basisstijl voor de hele pagina */
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: 0; /* Zorgt ervoor dat er geen witte balk bovenaan is */
+    padding: 0; /* Verwijder alle padding */
     background-color: #f5f7fa;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 /* Header-styling voor de site-header */
@@ -11,6 +17,9 @@ body {
     background-color: #4a90e2;
     padding: 10px 20px;
     color: #fff;
+    width: 100%;
+    box-sizing: border-box; /* Zorgt ervoor dat padding correct wordt berekend */
+    margin: 0; /* Verwijder marges */
 }
 
 .header-content {
@@ -37,15 +46,32 @@ body {
     color: #d1e4ff;
 }
 
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    background-color: #ffffff;
+    color: #4a90e2;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    background-color: #d1e4ff;
+    color: #333;
+}
+
 /* Container die alle elementen bevat */
 .container {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 40px;
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    max-width: 600px;
     width: 90%;
-    margin: 20px auto; /* Zorgt voor ruimte tussen de header en container */
+    margin: 20px auto;
     text-align: center;
 }
 
@@ -69,6 +95,30 @@ footer audio {
     width: 100%;
     outline: none;
     border-radius: 5px;
+}
+
+/* Dark Mode Styling */
+.dark-mode {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.dark-mode .site-header {
+    background-color: #333;
+}
+
+.dark-mode .container {
+    background-color: #444;
+    color: #fff;
+}
+
+.dark-mode .dark-mode-toggle {
+    background-color: #555;
+    color: #fff;
+}
+
+.dark-mode .verse {
+    color: #ffffff; /* Zorg ervoor dat de Psalm-tekst wit is in dark mode */
 }
 
 /* Media Queries voor kleinere schermen */
@@ -112,23 +162,3 @@ footer audio {
         font-size: 1.2em;
     }
 }
-
-@media (max-width: 768px) {
-    /* Stijlen voor kleinere schermen */
-    .container {
-      flex-direction: column;
-    }
-  }
-  
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-.dark-mode {
-  background-color: #333;
-  color: #fff;
-}
-
-  
