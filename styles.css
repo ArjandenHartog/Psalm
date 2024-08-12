@@ -74,7 +74,7 @@ footer audio {
 /* Media Queries voor kleinere schermen */
 @media (max-width: 768px) {
     .container {
-        padding: 30px;
+        padding: 10px;
     }
 
     .site-header {
@@ -95,7 +95,8 @@ footer audio {
     }
 
     .verse {
-        font-size: 1.3em;
+        font-size: 1.1em;
+        line-height: 1.3;
     }
 }
 
