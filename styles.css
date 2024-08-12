@@ -1,51 +1,114 @@
+/* Basisstijl voor de hele pagina */
 body {
-    font-family: "Times New Roman", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    font-family: 'Arial', sans-serif;
     margin: 0;
-    background-color: #07058d;
-}
-
-.container {
-    text-align: center;
-    background-color: #a4bac4;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    margin-bottom: 20px;
-}
-
-.verse {
-    font-size: 2.1em;
+    background-color: #f5f7fa;
     color: #333;
 }
 
-#verse {
-    white-space: pre-wrap; /* Zorgt ervoor dat de tekst in nieuwe regels breekt zoals in de originele HTML */
+/* Header-styling voor de site-header */
+.site-header {
+    background-color: #4a90e2;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.site-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.github-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s ease;
+}
+
+.github-link:hover {
+    color: #d1e4ff;
+}
+
+/* Container die alle elementen bevat */
+.container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    margin: 20px auto; /* Zorgt voor ruimte tussen de header en container */
+    text-align: center;
+}
+
+/* Header-styling */
+.container header h1 {
+    font-size: 2.5em;
+    margin: 0 0 20px;
+    color: #4a90e2;
+}
+
+/* Stijl voor de psalm tekst */
+.verse {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Audio-speler styling */
+footer audio {
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
 }
 
 /* Media Queries voor kleinere schermen */
 @media (max-width: 768px) {
-    .verse {
-        font-size: 1.8em;
+    .container {
+        padding: 30px;
     }
 
-    .container {
-        padding: 20px;
+    .site-header {
+        padding: 10px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .github-link {
+        margin-top: 10px;
+    }
+
+    .container header h1 {
+        font-size: 2em;
+    }
+
+    .verse {
+        font-size: 1.3em;
     }
 }
 
 @media (max-width: 480px) {
-    .verse {
-        font-size: 1.5em;
+    .container {
+        padding: 20px;
     }
 
-    .container {
-        padding: 15px;
+    .container header h1 {
+        font-size: 1.8em;
+    }
+
+    .verse {
+        font-size: 1.2em;
     }
 }
