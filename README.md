@@ -4,9 +4,7 @@ Dit project toont dagelijks een willekeurige Psalm-vers en biedt de mogelijkheid
 
 ## Demo
 
-Bekijk de live versie van de website [hier]((https://arjandenhartog.github.io/Psalm/)).
-
-## Functies
+Bekijk de live versie van de website [[hier](https://arjandenhartog.github.io/Psalm/)]
 
 - Toon dagelijks een willekeurig Psalm-vers.
 - Speel een bijbehorend audiobestand van de Psalm af.
