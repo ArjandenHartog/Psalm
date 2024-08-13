@@ -1,16 +1,68 @@
-/* Basisstijl voor de hele pagina */
-body {
-    font-family: 'Arial', sans-serif;
+/* CSS Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f5f7fa;
+    box-sizing: border-box;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
     color: #333;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* Verwijder de verticale centrering */
-    justify-content: flex-start; /* Of verwijder deze regel helemaal */
-    min-height: 100vh;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Ronde hoeken en schaduwen */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button, .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+button:hover, .card:hover {
+    transform: scale(1.05);
+}
+
+/* Kleurenpalet */
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Animaties */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.container, .card, button {
+    animation: fadeIn 0.5s ease-in-out;
 }
 
 /* Header-styling voor de site-header */
@@ -169,6 +221,11 @@ body {
 
 .dark-mode .verse {
     color: #ffffff; /* Zorg ervoor dat de Psalm-tekst wit is in dark mode */
+}
+
+.dark-mode .custom-dropdown {
+    background-color: #555;
+    color: #fff;
 }
 
 /* Media Queries voor kleinere schermen */
