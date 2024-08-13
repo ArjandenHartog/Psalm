@@ -80,6 +80,11 @@ function refreshAfterAudio(verses) {
     audioPlayer.addEventListener('ended', () => refreshPsalm(verses));
 }
 
+// Functie om de psalm elk 5 minuten te verversen
+function refresh5min(verses) {
+    refreshPsalm(verses); // Ververs direct bij aanvang
+    refreshTimer = setInterval(() => refreshPsalm(verses), 300000); // 300000 ms = 5 minuten
+}
 // Functie om de psalm elk uur te verversen
 function refreshHourly(verses) {
     refreshPsalm(verses); // Ververs direct bij aanvang
@@ -101,6 +106,8 @@ function applyRefreshInterval(interval, verses) {
         refreshAfterAudio(verses);
     } else if (interval === 'hourly') {
         refreshHourly(verses);
+    } else if (interval === '5min') {
+        refresh5min(verses);
     } else if (interval === 'daily') {
         refreshDaily(verses);
     }
