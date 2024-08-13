@@ -235,4 +235,62 @@ body {
     border: 1px solid #ccc;
 }
 
+/* Standaard styling voor de custom dropdown */
+.custom-dropdown {
+    appearance: none; /* Verwijdert standaard browserstijl */
+    -webkit-appearance: none; /* Voor Safari */
+    -moz-appearance: none; /* Voor Firefox */
+    background-color: #4a90e2; /* Achtergrondkleur */
+    color: #fff; /* Tekstkleur */
+    padding: 10px 15px; /* Binnenruimte */
+    font-size: 1em; /* Lettergrootte */
+    border: none; /* Verwijdert standaard rand */
+    border-radius: 5px; /* Rond de hoeken */
+    cursor: pointer; /* Verandert de cursor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Voeg een subtiele schaduw toe */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Gladde overgangen */
+    width: 100%; /* Volledige breedte */
+    max-width: 250px; /* Maximale breedte */
+}
+
+/* Pijl-icoon voor de dropdown */
+.custom-dropdown::after {
+    content: '\25BC'; /* Unicode voor neerwaartse pijl */
+    position: absolute;
+    right: 15px;
+    top: calc(50% - 5px); /* Verticaal centreren */
+    pointer-events: none; /* Negeert muisinteracties */
+    font-size: 0.7em; /* Maak de pijl kleiner */
+    color: #fff; /* Kleur van de pijl */
+}
+
+/* Zorg ervoor dat de dropdown-container relatief gepositioneerd is */
+.custom-dropdown-wrapper {
+    position: relative;
+}
+
+/* Hover- en focus-stijlen */
+.custom-dropdown:hover,
+.custom-dropdown:focus {
+    background-color: #3b7bbf; /* Donkerdere achtergrondkleur bij hover/focus */
+    color: #e0e4e9; /* Lichtere tekstkleur */
+}
+
+/* Specifieke stijl voor optiegroepen */
+.custom-dropdown option {
+    color: #333; /* Tekstkleur voor de opties */
+    background-color: #fff; /* Achtergrondkleur voor opties */
+    padding: 10px; /* Binnenruimte voor opties */
+}
+
+@media (max-width: 480px) {
+    .custom-dropdown {
+        font-size: 0.9em; /* Iets kleinere tekst op kleinere schermen */
+        padding: 8px 12px; /* Iets minder padding */
+    }
+
+    .custom-dropdown::after {
+        right: 10px; /* Verplaats de pijl iets naar binnen */
+    }
+}
 
