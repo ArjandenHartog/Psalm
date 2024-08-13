@@ -91,11 +91,60 @@ body {
     color: #555;
 }
 
-/* Audio-speler styling */
-footer audio {
+/* Algemene styling voor de audio-speler container */
+.audio-player-container {
     width: 100%;
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+/* Styling voor de audio-element */
+.audio-player-container audio {
+    width: calc(100% - 40px); /* Ruimte voor iconen */
     outline: none;
     border-radius: 5px;
+}
+
+/* Voor de play/pause-knop */
+.audio-player-container .play-pause-btn {
+    width: 30px;
+    height: 30px;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+/* Play/pause-knop hover-effect */
+.audio-player-container .play-pause-btn:hover {
+    background-color: #357ab7;
+}
+
+/* Dark Mode Styling */
+.dark-mode .audio-player-container {
+    background-color: #333;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .audio-player-container .play-pause-btn {
+    background-color: #555;
+}
+
+.dark-mode .audio-player-container .play-pause-btn:hover {
+    background-color: #777;
 }
 
 /* Dark Mode Styling */
