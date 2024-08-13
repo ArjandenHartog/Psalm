@@ -11,10 +11,21 @@
     <header class="site-header">
         <div class="header-content">
             <h2 class="site-title">Dagelijkse Psalm</h2>
-            <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+            <button class="dark-mode-toggle">Toggle Dark Mode</button>
             <a href="https://github.com/ArjandenHartog" class="github-link" target="_blank">GitHub</a>
+    
+            <!-- Keuzemenu voor het verversen van de psalm -->
+            <div class="refresh-options">
+                <label for="refresh-interval"></label>
+                <select id="refresh-interval">
+                    <option value="audio">Na het einde van de audio</option>
+                    <option value="hourly">Elk uur</option>
+                    <option value="daily">Elke dag</option>
+                </select>
+            </div>
         </div>
     </header>
+   
 
     <div class="container">
         <header>
@@ -29,6 +40,46 @@
             <audio id="audio-player" controls></audio>
         </footer>
     </div>
+
+    <!-- Je JavaScript code -->
+    <script>
+// Controleer of de gebruiker eerder dark mode heeft ingeschakeld
+window.addEventListener('DOMContentLoaded', (event) => {
+    const darkModeEnabled = localStorage.getItem('darkMode');
+
+    if (darkModeEnabled === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Event listener voor de dark mode toggle button
+    document.querySelector('.dark-mode-toggle').addEventListener('click', toggleDarkMode);
+});
+
+// Functie om dark mode in te schakelen
+function enableDarkMode() {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('darkMode', 'enabled'); // Sla de dark mode instelling op
+}
+
+// Functie om dark mode uit te schakelen
+function disableDarkMode() {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('darkMode', 'disabled'); // Sla de dark mode instelling op
+}
+
+// Functie om dark mode te toggelen
+function toggleDarkMode() {
+    const darkModeEnabled = localStorage.getItem('darkMode');
+    
+    if (darkModeEnabled === 'enabled') {
+        disableDarkMode();
+    } else {
+        enableDarkMode();
+    }
+}
+    </script>
+</body>
+</html>
     <!-- Voeg hier de gekopieerde inhoud van oude.html toe -->
     <div id="psalms-container" style="display:none;">
         <!-- Dit is de inhoud van oude.html -->

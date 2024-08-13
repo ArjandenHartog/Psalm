@@ -34,9 +34,84 @@ function showRandomVerse(verses) {
 document.addEventListener('DOMContentLoaded', () => {
     const verses = loadVerses(); // Verzen laden
     showRandomVerse(verses); // Direct een vers tonen
-    setInterval(() => showRandomVerse(verses), 100000);
+
+    // Lees de opgeslagen verversingsoptie uit localStorage
+    const savedInterval = localStorage.getItem('refreshInterval');
+    if (savedInterval) {
+        document.getElementById('refresh-interval').value = savedInterval;
+        applyRefreshInterval(savedInterval, verses);
+    } else {
+        applyRefreshInterval('audio', verses); // Standaard naar audio refresh als er geen keuze is
+    }
+
+    // Zet de dark mode zoals eerder ingesteld
+    const darkModeEnabled = localStorage.getItem('darkMode');
+    if (darkModeEnabled === 'enabled') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Event listener voor dark mode toggle
+    document.querySelector('.dark-mode-toggle').addEventListener('click', toggleDarkMode);
 });
 
+// Functie om dark mode in te schakelen en op te slaan
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
-  }
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        localStorage.setItem('darkMode', 'disabled');
+    }
+}
+
+// Selecteer elementen
+const audioPlayer = document.getElementById('audio-player');
+const refreshIntervalSelect = document.getElementById('refresh-interval');
+
+let refreshTimer;
+
+// Functie om de psalm te verversen
+function refreshPsalm(verses) {
+    showRandomVerse(verses);
+}
+
+// Functie om de psalm te verversen na het einde van de audio
+function refreshAfterAudio(verses) {
+    audioPlayer.addEventListener('ended', () => refreshPsalm(verses));
+}
+
+// Functie om de psalm elk uur te verversen
+function refreshHourly(verses) {
+    refreshPsalm(verses); // Ververs direct bij aanvang
+    refreshTimer = setInterval(() => refreshPsalm(verses), 3600000); // 3600000 ms = 1 uur
+}
+
+// Functie om de psalm elke dag te verversen
+function refreshDaily(verses) {
+    refreshPsalm(verses); // Ververs direct bij aanvang
+    refreshTimer = setInterval(() => refreshPsalm(verses), 86400000); // 86400000 ms = 1 dag
+}
+
+// Functie om het verversingsinterval toe te passen
+function applyRefreshInterval(interval, verses) {
+    clearInterval(refreshTimer); // Stop eventuele lopende timers
+    audioPlayer.removeEventListener('ended', () => refreshPsalm(verses));
+
+    if (interval === 'audio') {
+        refreshAfterAudio(verses);
+    } else if (interval === 'hourly') {
+        refreshHourly(verses);
+    } else if (interval === 'daily') {
+        refreshDaily(verses);
+    }
+}
+
+// Event listener voor veranderingen in het keuzemenu
+refreshIntervalSelect.addEventListener('change', function() {
+    const selectedOption = this.value;
+    localStorage.setItem('refreshInterval', selectedOption);
+    applyRefreshInterval(selectedOption, loadVerses());
+});
+
+// Stel de standaard verversoptie in bij het laden van de pagina
+applyRefreshInterval(refreshIntervalSelect.value, loadVerses());
