@@ -1,5 +1,3 @@
-# Dagelijkse Psalm
-
 Dit project toont dagelijks een willekeurige Psalm-vers en biedt de mogelijkheid om het corresponderende audiobestand af te spelen. De website is responsief en geoptimaliseerd voor zowel desktop- als mobiele apparaten.
 
 ## Demo
